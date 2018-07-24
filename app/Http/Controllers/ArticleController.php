@@ -16,11 +16,59 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //Get articles
-        $articles = Article::paginate(5);
-
-        //Return employee details
-        return ArticleResource::collection($articles);
+    $body = array(
+                    "design" =>array(
+                                    "title"=>"Design",
+                                    "jobs"=>array(
+                                                array(
+                                                    "title" => "Graphic Designer",
+                                                    "location" => "Tehri",
+                                                    "permalink" => "graphic-designer",
+                                                    "job_abstract" => "Your playground is the visual dimension. You will create strong visuals that tell the right story and leave a lasting impact.",
+                                                    ),
+                                                array(
+                                                    "title" => "Product Designer",
+                                                    "location" => "Gurugram",
+                                                    "permalink" => "product-designer",
+                                                    "job_abstract" =>"",
+                                                    )
+                                                )
+                                    ),
+                    "engineering"=>array(
+                                    "title"=>"Engineering",
+                                    "jobs"=>array(
+                                                array(
+                                                    "title" => "DevOps Engineer ",
+                                                    "location" => "Tehri",
+                                                    "permalink" => "devops-engineer",
+                                                    "job_abstract" =>""
+                                                    )
+                                                )
+                                    ),
+                    "marketing"=>array(
+                                    "title"=>"Marketing",
+                                    "jobs"=>array(
+                                                array(
+                                                    "title" => "Marketing",
+                                                    "location" => "Gurugram",
+                                                    "permalink" => "marketing",
+                                                    "job_abstract" =>""
+                                                    ),
+                                                ),
+                                    ),
+                    "project-management"=>array(
+                                    "title"=>"Project Management",
+                                    "jobs"=>array(
+                                                array(
+                                                    "title" => "Project Manager",
+                                                    "location" => "Gurugram",
+                                                    "permalink" => "project-manager",
+                                                    "job_abstract" =>"Keeping the vision of the project intact and pulling the team towards it, managing expectations, during various stages of product development for great execution."
+                                                    ),
+                                                )
+                                            )
+                );    
+    return json_encode($body);
     }
 
     /**
